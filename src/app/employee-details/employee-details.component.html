@@ -1,0 +1,46 @@
+<h1 class=" text-dark" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Employee Details</h1>
+
+<table class="table table-bordered" [style.background]="bgUrl"  [style.background-repeat] = "bgrepeat" [style.background-size] = "bgcover" >
+    <thead class="bg-dark text-light">
+        <th>
+            Employee ID
+        </th>
+        <th>
+            Employee Name
+        </th>
+        <th>
+            Employee Salary
+        </th>
+        <th>
+            Action
+        </th>
+    </thead>
+    <tr *ngFor="let detail of empArray" class="text-light">
+        <td>
+            {{ detail.empId }}
+        </td>
+        <td>
+            {{ detail.empName }}
+        </td>
+        <td>
+            {{ detail.salary }}
+        </td>
+        <td>
+            <input type="button" value="EDIT" class="ml-2 btn btn-primary" (click)="edit(detail);"/>
+            <input type="button" value="DELETE" class="ml-2 btn btn-primary" (click)="delete(detail);"/>
+            <input type="button" value="GET DETAILS" class="ml-2 btn btn-primary ml-2" (click)="empDetails(detail);"/>
+             <input type="button" value="Delete with confirm" class="btn btn-primary ml-2" (click)="deleteWithConfirm(detail.empId);"/>
+
+        </td>
+        <tr>
+            <td colspan="4" class="text-center">
+                <input type="button" class="btn btn-danger" value = "Add More Rows" (click) = "addRow();"/>
+            </td>
+        </tr>
+</table>
+<div *ngIf=showAddEmp>
+<app-add-employee-component (sendNewEmp)="sendNameHandler($event);"></app-add-employee-component>
+</div>
+<div *ngIf=showEditEmp>
+<app-emp-edit [parentToBeEdited] = "empToBeEdited" (sendEditEmp)="sendEditHandler($event)"></app-emp-edit>
+</div>

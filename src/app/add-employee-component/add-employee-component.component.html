@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row bg-dark text-light">
+    <div class="col-8 offset-2 mt-5 mb-5">
+      <form>
+        <div class="form-group my-2">
+          <label for="my-input">Employee Id</label>
+          <input
+            id="empId"
+            #empID
+            class="form-control"
+            type="text"
+            name="empId"
+          />
+        </div>
+        <div class="form-group">
+          <label for="my-input">Employee Name</label>
+          <input
+            id="empName"
+            #empName
+            class="form-control"
+            type="text"
+            name="empName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="my-input">Employee Salary</label>
+          <input
+            id="empSalary"
+            #empSalary
+            class="form-control"
+            type="text"
+            name="empSalary"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="button"
+            value="Confirm"
+            class="btn btn-primary"
+            (click)="confirm(empID.value, empName.value, empSalary.value);"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

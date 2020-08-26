@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demoProject';
+  empObj = { name: "H", id: "1" }
+  imgurl: string;
+  constructor() {
+    this.imgurl = "../assets/p2.png";
+  }
 }

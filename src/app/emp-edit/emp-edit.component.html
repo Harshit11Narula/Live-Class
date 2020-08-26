@@ -1,0 +1,45 @@
+<div class="container bg-dark text-info">
+    <div class="row d-flex">
+        <div class="offset-3">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" > Edit Employee {{parentToBeEdited.empId}} </h1>
+        </div>
+      
+    </div>
+  <div class="row">
+    <div class="col-4 offset-4">
+      <form>
+        
+        <div class="form-group">
+          <label for="my-input">Employee Name</label>
+          <input
+            id="empName"
+            #empName
+            class="form-control"
+            type="text"
+            name="empName"
+            [value] = "parentToBeEdited.empName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="my-input">Employee Salary</label>
+          <input
+            id="empSalary"
+            #empSalary
+            class="form-control"
+            type="text"
+            name="empSalary"
+            [value]="parentToBeEdited.salary"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="button"
+            value="Confirm"
+            class="btn btn-primary"
+            (click)="editEmpClick(empName.value , empSalary.value);"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
